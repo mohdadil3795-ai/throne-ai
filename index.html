@@ -8,10 +8,9 @@
 <style>
   :root {
     --bg: #07090f;
-    --glass: rgba(255, 255, 255, 0.055);
-    --glass-strong: rgba(18, 22, 36, 0.82);
-    --border: rgba(255, 255, 255, 0.11);
-    --border-glow: rgba(124, 92, 255, 0.45);
+    --glass: rgba(255, 255, 255, 0.06);
+    --border: rgba(255, 255, 255, 0.12);
+    --border-glow: rgba(124, 92, 255, 0.5);
     --text: #f3f6fc;
     --muted: #94a3b8;
     --accent: #7c5cff;
@@ -28,6 +27,7 @@
     margin: 0;
     padding: 0;
     -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   html, body {
@@ -39,12 +39,11 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
   }
 
-  /* Ambient Liquid Aura */
   body::before, body::after {
     content: "";
     position: fixed;
-    width: 320px;
-    height: 320px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     filter: blur(95px);
     z-index: 0;
@@ -64,13 +63,12 @@
     margin: 0 auto;
   }
 
-  /* Clean Flagship Header */
   header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: calc(10px + env(safe-area-inset-top)) 16px 10px;
-    background: rgba(7, 9, 15, 0.72);
+    background: rgba(7, 9, 15, 0.78);
     backdrop-filter: blur(22px);
     -webkit-backdrop-filter: blur(22px);
     border-bottom: 1px solid var(--border);
@@ -93,7 +91,6 @@
     place-items: center;
     font-size: 17px;
     cursor: pointer;
-    transition: transform 0.15s ease, background 0.2s;
   }
   .icon-btn:active { transform: scale(0.93); }
 
@@ -103,7 +100,6 @@
     gap: 8px;
     font-weight: 700;
     font-size: 18px;
-    letter-spacing: -0.3px;
   }
 
   .logo-orb {
@@ -131,7 +127,6 @@
     cursor: pointer;
   }
 
-  /* Chat Canvas */
   main {
     flex: 1;
     overflow-y: auto;
@@ -144,13 +139,12 @@
   main::-webkit-scrollbar { width: 4px; }
   main::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 10px; }
 
-  /* First 10-Second Hero Cards */
   .hero {
     margin: auto 0;
     display: flex;
     flex-direction: column;
     gap: 14px;
-    padding: 8px 2px;
+    padding: 6px 2px;
   }
 
   .hero-title {
@@ -163,7 +157,6 @@
     background: linear-gradient(135deg, #ffffff 20%, #a5b4fc 60%, #38bdf8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    letter-spacing: -0.5px;
   }
   .hero-title p {
     font-size: 13.5px;
@@ -190,12 +183,11 @@
     text-align: left;
     color: var(--text);
     cursor: pointer;
-    transition: all 0.2s ease;
   }
   .starter-card:active {
     transform: scale(0.98);
     border-color: var(--border-glow);
-    background: rgba(124, 92, 255, 0.12);
+    background: rgba(124, 92, 255, 0.14);
   }
 
   .starter-icon {
@@ -214,12 +206,11 @@
   .starter-card h3 { font-size: 15px; font-weight: 700; }
   .starter-card span { display: block; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
 
-  /* Messages */
   .msg {
     display: flex;
     flex-direction: column;
     max-width: 92%;
-    animation: fadeUp 0.22s ease;
+    animation: fadeUp 0.2s ease;
   }
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(8px); }
@@ -265,7 +256,6 @@
     color: #7dd3fc;
   }
 
-  /* Code Card + Live Sandbox Bar */
   .code-box {
     margin: 10px 0;
     border-radius: 16px;
@@ -288,16 +278,11 @@
     font-weight: 700;
     text-transform: uppercase;
     color: var(--cyan);
-    letter-spacing: 0.5px;
   }
-  .code-actions {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-  }
+  .code-actions { display: flex; gap: 6px; flex-wrap: wrap; }
   .c-btn {
     border: 1px solid var(--border);
-    background: rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.08);
     color: #fff;
     font-size: 11.5px;
     font-weight: 600;
@@ -305,15 +290,8 @@
     border-radius: 9px;
     cursor: pointer;
   }
-  .c-btn.run {
-    background: linear-gradient(135deg, #10b981, #059669);
-    border-color: transparent;
-  }
-  .c-btn.fix {
-    background: rgba(251, 191, 36, 0.16);
-    border-color: rgba(251, 191, 36, 0.4);
-    color: #fde68a;
-  }
+  .c-btn.run { background: linear-gradient(135deg, #10b981, #059669); border-color: transparent; }
+  .c-btn.fix { background: rgba(251, 191, 36, 0.16); border-color: rgba(251, 191, 36, 0.4); color: #fde68a; }
   .code-box pre {
     padding: 12px;
     overflow-x: auto;
@@ -324,12 +302,7 @@
     max-height: 260px;
   }
 
-  /* AI vs AI Split Debate Arena Card */
-  .arena-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+  .arena-wrap { display: flex; flex-direction: column; gap: 10px; }
   .arena-badge {
     display: inline-flex;
     align-items: center;
@@ -340,30 +313,17 @@
     letter-spacing: 0.6px;
     color: var(--cyan);
   }
-  .arena-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  @media (max-width: 540px) {
-    .arena-grid { grid-template-columns: 1fr; }
-  }
+  .arena-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 540px) { .arena-grid { grid-template-columns: 1fr; } }
   .fighter {
     padding: 13px;
     border-radius: 18px;
-    background: rgba(10, 14, 26, 0.75);
+    background: rgba(10, 14, 26, 0.78);
     border: 1px solid var(--border);
   }
   .fighter.bolt { border-color: rgba(0, 229, 255, 0.35); }
   .fighter.nova { border-color: rgba(192, 132, 252, 0.38); }
-  .fighter-head {
-    font-size: 13px;
-    font-weight: 800;
-    margin-bottom: 7px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
+  .fighter-head { font-size: 13px; font-weight: 800; margin-bottom: 7px; }
   .fighter.bolt .fighter-head { color: var(--cyan); }
   .fighter.nova .fighter-head { color: var(--violet); }
   .fighter-body { font-size: 13.5px; line-height: 1.5; color: #e2e8f0; }
@@ -374,12 +334,7 @@
     background: linear-gradient(135deg, rgba(251, 191, 36, 0.14), rgba(124, 92, 255, 0.14));
     border: 1px solid rgba(251, 191, 36, 0.38);
   }
-  .verdict-head {
-    font-size: 12.5px;
-    font-weight: 800;
-    color: var(--gold);
-    margin-bottom: 4px;
-  }
+  .verdict-head { font-size: 12.5px; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
   .share-battle-btn {
     margin-top: 8px;
     width: 100%;
@@ -393,14 +348,8 @@
     cursor: pointer;
   }
 
-  /* 8K Image Card */
-  .art-card {
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-  }
+  .art-card { display: flex; flex-direction: column; gap: 9px; }
   .art-img-wrap {
-    position: relative;
     border-radius: 18px;
     overflow: hidden;
     background: #0d1220;
@@ -409,11 +358,7 @@
     display: grid;
     place-items: center;
   }
-  .art-img-wrap img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+  .art-img-wrap img { width: 100%; height: auto; display: block; }
   .art-prompt-tag {
     font-size: 12px;
     color: var(--muted);
@@ -423,10 +368,9 @@
     border: 1px solid var(--border);
   }
 
-  /* Thumb-Zone Controls */
   .dock {
     padding: 8px 12px calc(12px + env(safe-area-inset-bottom));
-    background: rgba(7, 9, 15, 0.84);
+    background: rgba(7, 9, 15, 0.88);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     border-top: 1px solid var(--border);
@@ -451,15 +395,13 @@
     font-size: 12.5px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.18s;
   }
   .mode-chip.active {
-    background: linear-gradient(135deg, rgba(124, 92, 255, 0.32), rgba(0, 229, 255, 0.22));
-    border-color: rgba(124, 92, 255, 0.65);
+    background: linear-gradient(135deg, rgba(124, 92, 255, 0.35), rgba(0, 229, 255, 0.25));
+    border-color: rgba(124, 92, 255, 0.7);
     color: #fff;
   }
 
-  /* Image Studio Sub-Chips */
   .studio-options {
     display: none;
     flex-direction: column;
@@ -471,12 +413,7 @@
     border: 1px solid var(--border);
   }
   .studio-options.show { display: flex; }
-  .chip-row {
-    display: flex;
-    gap: 6px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
+  .chip-row { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
   .chip-row::-webkit-scrollbar { display: none; }
   .sub-chip {
     flex-shrink: 0;
@@ -499,14 +436,14 @@
     display: flex;
     align-items: flex-end;
     gap: 8px;
-    background: rgba(255, 255, 255, 0.065);
+    background: rgba(255, 255, 255, 0.075);
     border: 1px solid var(--border);
     border-radius: 22px;
     padding: 6px 8px 6px 14px;
   }
   .input-box:focus-within {
     border-color: var(--border-glow);
-    box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.14);
+    box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.16);
   }
 
   textarea {
@@ -525,8 +462,8 @@
   textarea::placeholder { color: #64748b; }
 
   .mic-btn, .send-btn {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 16px;
     border: none;
     display: grid;
@@ -535,26 +472,16 @@
     cursor: pointer;
     flex-shrink: 0;
   }
-  .mic-btn {
-    background: rgba(255,255,255,0.07);
-    color: var(--text);
-  }
-  .mic-btn.listening {
-    background: rgba(251, 113, 133, 0.25);
-    color: var(--red);
-    animation: pulse 1s infinite;
-  }
-  @keyframes pulse { 50% { transform: scale(1.08); } }
-
+  .mic-btn { background: rgba(255,255,255,0.08); color: var(--text); }
+  .mic-btn.listening { background: rgba(251, 113, 133, 0.25); color: var(--red); }
   .send-btn {
     background: linear-gradient(135deg, #7c5cff, #38bdf8);
     color: #fff;
     font-weight: 700;
-    box-shadow: 0 4px 16px rgba(124, 92, 255, 0.4);
+    box-shadow: 0 4px 16px rgba(124, 92, 255, 0.45);
   }
   .send-btn:disabled { opacity: 0.45; }
 
-  /* Modals & Drawers */
   .overlay {
     position: fixed;
     inset: 0;
@@ -574,13 +501,7 @@
     border: 1px solid var(--border);
     border-radius: 26px 26px 0 0;
     padding: 20px 18px calc(22px + env(safe-area-inset-bottom));
-    animation: slideUp 0.24s ease;
   }
-  @keyframes slideUp {
-    from { transform: translateY(100%); }
-    to { transform: translateY(0); }
-  }
-
   .sheet-head {
     display: flex;
     justify-content: space-between;
@@ -616,7 +537,6 @@
   .plan-btn.free-ad { background: #fbbf24; color: #090d16; }
   .plan-btn.buy-pro { background: linear-gradient(135deg, #7c5cff, #38bdf8); color: #fff; }
 
-  /* Fullscreen Live Sandbox Modal */
   .sandbox-modal {
     position: fixed;
     inset: 0;
@@ -634,14 +554,8 @@
     background: #0d1220;
     border-bottom: 1px solid var(--border);
   }
-  .sandbox-frame {
-    flex: 1;
-    width: 100%;
-    border: none;
-    background: #fff;
-  }
+  .sandbox-frame { flex: 1; width: 100%; border: none; background: #fff; }
 
-  /* History Drawer */
   .drawer {
     position: fixed;
     top: 0; left: 0; bottom: 0;
@@ -655,13 +569,7 @@
     gap: 12px;
   }
   .drawer.open { display: flex; }
-  .hist-list {
-    flex: 1;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-  }
+  .hist-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 7px; }
   .hist-item {
     padding: 11px 12px;
     border-radius: 14px;
@@ -675,7 +583,6 @@
     cursor: pointer;
   }
 
-  /* Typing Dots */
   .typing { display: inline-flex; gap: 5px; padding: 6px 2px; }
   .typing span {
     width: 7px; height: 7px; border-radius: 50%; background: var(--cyan);
@@ -690,7 +597,7 @@
     top: 70px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(15, 23, 42, 0.96);
     border: 1px solid var(--border-glow);
     color: #fff;
     padding: 9px 16px;
@@ -707,15 +614,15 @@
 <div class="app">
   <header>
     <div class="brand-wrap">
-      <button class="icon-btn" onclick="toggleDrawer(true)" aria-label="Chats">☰</button>
+      <button class="icon-btn" id="menuBtn" type="button">☰</button>
       <div class="brand">
         <div class="logo-orb">👑</div>
         <span>Throne AI</span>
       </div>
     </div>
     <div style="display:flex;gap:8px;align-items:center;">
-      <button class="coin-pill" onclick="openWallet()">🪙 <span id="coinCount">100</span></button>
-      <button class="icon-btn" onclick="newChat()" title="New Chat">＋</button>
+      <button class="coin-pill" id="walletBtn" type="button">🪙 <span id="coinCount">100</span></button>
+      <button class="icon-btn" id="newChatBtn" type="button">＋</button>
     </div>
   </header>
 
@@ -723,53 +630,80 @@
 
   <div class="dock">
     <div class="mode-bar" id="modeBar">
-      <button class="mode-chip active" data-mode="chat" onclick="setMode('chat')">💬 Free Chat</button>
-      <button class="mode-chip" data-mode="debate" onclick="setMode('debate')">⚔️ AI vs AI Fight</button>
-      <button class="mode-chip" data-mode="code" onclick="setMode('code')">💻 Coding Pro</button>
-      <button class="mode-chip" data-mode="image" onclick="setMode('image')">🎨 8K Studio</button>
+      <button class="mode-chip active" data-mode="chat" type="button">💬 Free Chat</button>
+      <button class="mode-chip" data-mode="debate" type="button">⚔️ AI vs AI Fight</button>
+      <button class="mode-chip" data-mode="code" type="button">💻 Coding Pro</button>
+      <button class="mode-chip" data-mode="image" type="button">🎨 8K Studio</button>
     </div>
 
     <div class="studio-options" id="studioOptions">
       <div class="chip-row" id="styleChips">
-        <button class="sub-chip active" data-val="Photorealistic 8K">📸 Realistic 8K</button>
-        <button class="sub-chip" data-val="Pixar 3D Cartoon">🧸 3D Cartoon</button>
-        <button class="sub-chip" data-val="Vibrant Anime">⚡ Anime</button>
-        <button class="sub-chip" data-val="Neon Cyberpunk">🌃 Cyberpunk</button>
+        <button class="sub-chip active" data-val="Photorealistic 8K" type="button">📸 Realistic 8K</button>
+        <button class="sub-chip" data-val="Pixar 3D Cartoon" type="button">🧸 3D Cartoon</button>
+        <button class="sub-chip" data-val="Vibrant Anime" type="button">⚡ Anime</button>
+        <button class="sub-chip" data-val="Neon Cyberpunk" type="button">🌃 Cyberpunk</button>
       </div>
       <div class="chip-row" id="ratioChips">
-        <button class="sub-chip active" data-w="768" data-h="1344">📱 9:16 Reels</button>
-        <button class="sub-chip" data-w="1024" data-h="1024">🟦 1:1 Insta</button>
-        <button class="sub-chip" data-w="1344" data-h="768">🖥️ 16:9 YouTube</button>
+        <button class="sub-chip active" data-w="768" data-h="1344" type="button">📱 9:16 Reels</button>
+        <button class="sub-chip" data-w="1024" data-h="1024" type="button">🟦 1:1 Insta</button>
+        <button class="sub-chip" data-w="1344" data-h="768" type="button">🖥️ 16:9 YouTube</button>
       </div>
     </div>
 
     <div class="input-box">
-      <textarea id="promptInput" rows="1" placeholder="Kuch bhi puchho (Hinglish / Hindi / English)..." oninput="autoGrow(this)"></textarea>
-      <button class="mic-btn" id="micBtn" onclick="toggleVoice()" title="Voice Input">🎙️</button>
-      <button class="send-btn" id="sendBtn" onclick="handleSend()">➤</button>
+      <textarea id="promptInput" rows="1" placeholder="Kuch bhi puchho (Hinglish / Hindi / English)..."></textarea>
+      <button class="mic-btn" id="micBtn" type="button">🎙️</button>
+      <button class="send-btn" id="sendBtn" type="button">➤</button>
     </div>
   </div>
 </div>
 
-<!-- Coins & Micro-Pro Wallet Modal -->
-<div class="overlay" id="walletModal" onclick="if(event.target===this)closeWallet()">
+<div class="overlay" id="walletModal">
   <div class="sheet">
     <div class="sheet-head">
       <h2>🪙 Throne Coins & Pro Pass</h2>
-      <button class="icon-btn" onclick="closeWallet()">✕</button>
+      <button class="icon-btn" id="closeWalletBtn" type="button">✕</button>
     </div>
     <p style="font-size:13px;color:var(--muted);margin-bottom:14px;">
       Normal Chat & Study <b>100% Free</b> hai. AI vs AI Fight, Coding Pro aur 8K Studio ke liye coins ya Pro Pass use karein.
     </p>
-
     <div class="plan-card">
       <div>
         <div style="font-weight:800;font-size:15px;">🎬 Watch 1 Short Ad</div>
-        <div style="font-size:12.5px;color:var(--muted);">Turant +50 Free Coins pao (No payment)</div>
+        <div style="font-size:12.5px;color:var(--muted);">Turant +50 Free Coins pao</div>
       </div>
-      <button class="plan-btn free-ad" id="adBtn" onclick="watchRewardAd()">+50 Coins</button>
+      <button class="plan-btn free-ad" id="adBtn" type="button">+50 Coins</button>
     </div>
-
     <div class="plan-card pro">
       <div>
-        <div style="font-weight:800;font-size:15px;color:#fff;">👑 Throne Pro Mo
+        <div style="font-weight:800;font-size:15px;color:#fff;">👑 Throne Pro Monthly</div>
+        <div style="font-size:12.5px;color:#cbd5e1;">Unlimited AI Battles, 8K Art & Coding Pro</div>
+      </div>
+      <button class="plan-btn buy-pro" id="proMonthBtn" type="button">₹49 / mo</button>
+    </div>
+    <div class="plan-card">
+      <div>
+        <div style="font-weight:800;font-size:14.5px;">⚡ Weekly Creator Pass</div>
+        <div style="font-size:12px;color:var(--muted);">7 Din Unlimited Pro Access</div>
+      </div>
+      <button class="plan-btn buy-pro" id="proWeekBtn" type="button">₹19 / wk</button>
+    </div>
+  </div>
+</div>
+
+<div class="sandbox-modal" id="sandboxModal">
+  <div class="sandbox-top">
+    <span style="font-weight:800;font-size:14px;color:var(--green);">▶️ Live Mobile Sandbox</span>
+    <div style="display:flex;gap:8px;">
+      <button class="c-btn fix" id="sandboxFixBtn" type="button">🛠️ Fix Bug</button>
+      <button class="c-btn" id="sandboxCloseBtn" type="button">✕ Close</button>
+    </div>
+  </div>
+  <iframe class="sandbox-frame" id="sandboxFrame" sandbox="allow-scripts allow-forms allow-modals"></iframe>
+</div>
+
+<div class="overlay" id="drawerBackdrop"></div>
+<aside class="drawer" id="historyDrawer">
+  <div class="sheet-head" style="margin-bottom:4px;">
+    <h2>💬 Recent Chats</h2>
+    <button class="
